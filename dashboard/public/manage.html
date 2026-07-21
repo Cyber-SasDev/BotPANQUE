@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>🥞 Configuración</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="content">
+
+
+<h1>
+⚙️ Configuración del servidor
+</h1>
+
+
+
+
+
+<!-- 👋 Welcome -->
+
+<div class="card">
+
+
+<h2>👋 Bienvenida</h2>
+
+
+
+<label>
+Mensaje de bienvenida:
+</label>
+
+
+<input 
+id="welcomeMessage"
+placeholder="Hola {user}!">
+
+
+
+
+
+<label>
+🖼️ Imagen de bienvenida:
+</label>
+
+
+<input
+id="welcomeImage"
+placeholder="https://imagen.com/banner.png">
+
+
+
+
+
+<button onclick="saveWelcome()">
+
+💾 Guardar
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 🎭 AutoRole -->
+
+<div class="card">
+
+
+<h2>🎭 AutoRole</h2>
+
+
+<p>
+Rol que recibirá un usuario nuevo:
+</p>
+
+
+<select id="autoRole">
+
+<option>
+Cargando roles...
+</option>
+
+
+</select>
+
+
+
+
+
+<button onclick="saveAutoRole()">
+
+💾 Guardar AutoRole
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 🎫 Tickets -->
+
+<div class="card">
+
+
+<h2>🎫 Tickets</h2>
+
+
+<p>
+
+Estado:
+
+🟢 Activado
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 📋 Logs -->
+
+<div class="card">
+
+
+<h2>📋 Logs</h2>
+
+
+<p>
+
+Próximamente...
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+<script src="manage.js"></script>
+
+
+</body>
+
+</html>
