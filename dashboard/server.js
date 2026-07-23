@@ -16,8 +16,7 @@ require("./auth/discord")(passport);
 
 const app = express();
 
-const PORT = 3000;
-
+const PORT = process.env.PORT || 3000;
 
 // ================================
 // Middleware
@@ -456,11 +455,7 @@ app.listen(PORT,()=>{
     console.log("--------------------------------");
 
 
-    console.log(
+      console.log(`🌐 http://localhost:${PORT}`);
 
-        `🌐 http://localhost:${PORT}`
-
-    );
-
-
+      
 });
