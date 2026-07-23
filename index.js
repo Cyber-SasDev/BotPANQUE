@@ -1,80 +1,59 @@
 // ========================================
 // 🥞 BotPANQUE
 // Main File
-// Version 0.1.0
+// Version 0.4.0
 // ========================================
 
 require("dotenv").config();
 
-const { 
-    Client, 
-    GatewayIntentBits 
+const {
+    Client,
+    GatewayIntentBits
 } = require("discord.js");
 
 const eventHandler = require("./src/handlers/eventHandler");
 const commandHandler = require("./src/handlers/commandHandler");
 
+const dashboard = require("./dashboard/server");
 
 const client = new Client({
 
     intents: [
 
         GatewayIntentBits.Guilds,
-
         GatewayIntentBits.GuildMembers
 
     ]
 
 });
 
+// ========================================
+// Load Events & Commands
+// ========================================
 
-
-// Load events
 eventHandler(client);
-
 commandHandler(client);
 
-
-
-// Login
 // ========================================
-// 🌐 BotPANQUE API Dashboard
+// Dashboard
 // ========================================
 
-const express = require("express");
-const cors = require("cors");
+// Pasar el cliente de Discord al Dashboard
+dashboard.setClient(client);
 
-const rolesApi = require("./src/api/rolesApi");
+const PORT = process.env.PORT || 3000;
 
+dashboard.listen(PORT, () => {
 
-const api = express();
-
-
-// Permitir conexión desde Dashboard
-api.use(cors());
-
-
-api.use(express.json());
-
-
-// Conectar API con Discord
-rolesApi.setClient(client);
-
-
-// Rutas
-api.use(
-    "/api",
-    rolesApi.router
-);
-
-
-
-// Encender API
-api.listen(3001,()=>{
-
-    console.log(
-        "🌐 Bot API online :3001"
-    );
+    console.log("--------------------------------");
+    console.log("🥞 BotPANQUE Dashboard");
+    console.log("--------------------------------");
+    console.log(`🌐 Dashboard Online : ${PORT}`);
 
 });
+
+// ========================================
+// Login Discord Bot
+// ========================================
+
 client.login(process.env.DISCORD_TOKEN);
